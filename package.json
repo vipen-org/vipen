@@ -9,12 +9,6 @@
     "type": "git",
     "url": "git+https://github.com/vipen-org/vipen.git"
   },
-  "devDependencies": {
-    "@anio-software/npm-package-bundler": "^1.0.0"
-  },
-  "scripts": {
-    "prepare": "./node_modules/.bin/npm-package-bundler ."
-  },
   "files": [
     "./dist/package.mjs"
   ]
