@@ -54,4 +54,8 @@ export default async function(project_root) {
 
 		await f.build()
 	}
+
+	for (const w of ctx.warnings) {
+		console.log(w.id, w)
+	}
 }
