@@ -2,14 +2,16 @@
   "name": "vipen",
   "version": "0.0.1",
   "description": "A versatile project builder.",
-  "main": "./dist/package.mjs",
+  "main": "./src/index.mjs",
   "author": "Anio Software <info@anio.software>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vipen-org/vipen.git"
   },
-  "files": [
-    "./dist/package.mjs"
-  ]
+  "dependencies": {
+    "@anio-node-foundation/fs-remove": "^2.0.0",
+    "@anio-node-foundation/fs-scandir": "^2.0.1",
+    "@anio-node-foundation/fs-utils": "^2.2.0"
+  }
 }
