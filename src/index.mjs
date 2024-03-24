@@ -37,6 +37,14 @@ async function run(context) {
 		await fsRemove(path.join(context.root, entry))
 	}
 
+	//
+	if ("preprocessing" in context.config) {
+		for (const fn of context.config.preprocessing) {
+			await fn(context)
+		}
+	}
+	//
+
 	for (const file of context.files_to_autogenerate) {
 		console.log("generating", file.relative_path)
 
@@ -48,6 +56,14 @@ async function run(context) {
 
 		await file.build()
 	}
+
+	//
+	if ("postprocessing" in context.config) {
+		for (const fn of context.config.postprocessing) {
+			await fn(context)
+		}
+	}
+	//
 
 	for (const warning of context.warnings) {
 		console.log(warning.id, warning)
