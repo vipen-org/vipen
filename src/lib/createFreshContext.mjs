@@ -1,12 +1,13 @@
 import path from "node:path"
 import fs from "node:fs/promises"
 
-export default function(project_root) {
+export default function(project_root, project_config) {
 	let ctx = {
 		warnings: [],
 
+		config: project_config,
+
 		root: project_root,
-		type: "library",
 
 		files_to_autogenerate: [],
 		files_to_build: [],
