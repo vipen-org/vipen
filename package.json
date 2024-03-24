@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "description": "A versatile project builder.",
   "main": "./src/index.mjs",
+  "bin": {
+    "vipen": "./src/cli.mjs"
+  },
   "author": "Anio Software <info@anio.software>",
   "license": "MIT",
   "repository": {
