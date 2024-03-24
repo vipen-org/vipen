@@ -1,6 +1,6 @@
 {
   "name": "vipen",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A versatile project builder.",
   "main": "./src/index.mjs",
   "bin": {
