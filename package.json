@@ -1,6 +1,6 @@
 {
   "name": "vipen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A versatile project builder.",
   "main": "./src/index.mjs",
   "author": "Anio Software <info@anio.software>",
