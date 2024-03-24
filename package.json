@@ -2,7 +2,10 @@
   "name": "vipen",
   "version": "0.0.4",
   "description": "A versatile project builder.",
-  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./processing": "./src/processing/index.mjs"
+  },
   "bin": {
     "vipen": "./src/cli.mjs"
   },
