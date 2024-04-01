@@ -9,6 +9,10 @@ function defaultTransformSourceCode(relative_path, contents) {
 }
 
 export default async function(vipen_session) {
+	if (!("preprocess" in vipen_session.project.config)) {
+		return
+	}
+
 	let preprocess = {}
 
 	if (Array.isArray(vipen_session.project.config.preprocess)) {
