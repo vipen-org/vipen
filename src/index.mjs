@@ -1,3 +1,21 @@
+import createVipenSession from "./lib/init/createVipenSession.mjs"
+import stages from "./stages/index.mjs"
+
+export default async function(project_root) {
+	const vipen_session = await createVipenSession(project_root)
+
+	await vipen_session.initializeTarget()
+
+	for (const stage of stages) {
+		await stage(vipen_session)
+	}
+
+	for (const warning of vipen_session.project.warnings) {
+		console.log(warning.id, warning.message)
+	}
+}
+
+/*
 import {createRequire} from "node:module"
 
 import createFreshContext from "./lib/createFreshContext.mjs"
@@ -76,7 +94,7 @@ export default async function(project_root) {
 
 	const {version, initializeTarget} = await getTargetModule(context)
 
-	await initializeTarget(context)
+	await initializeTarget(context.public_interface)
 
 	// stages in their order:
 	//
@@ -94,3 +112,4 @@ export default async function(project_root) {
 
 	await run(context)
 }
+*/
