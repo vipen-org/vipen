@@ -9,10 +9,6 @@ function defaultTransformSourceCode(relative_path, contents) {
 }
 
 export default async function(vipen_session) {
-	if (!("preprocess" in vipen_session.project.config)) {
-		return
-	}
-
 	let preprocess = {}
 
 	if (Array.isArray(vipen_session.project.config.preprocess)) {
@@ -20,7 +16,9 @@ export default async function(vipen_session) {
 
 		preprocess.runCustomFunctions = vipen_session.project.config.preprocess
 	} else {
-		preprocess = vipen_session.project.config.preprocess
+		if (typeof vipen_session.project.config.preprocess === "object") {
+			preprocess = vipen_session.project.config.preprocess
+		}
 
 		if (!("transformSourceCode" in preprocess)) {
 			preprocess.transformSourceCode = defaultTransformSourceCode
