@@ -1,5 +1,5 @@
 import path from "node:path"
-import {writeAtomicFile} from "@anio-node-foundation/fs-utils"
+import {writeAtomicFile} from "@anio-software/fs"
 
 export default async function(vipen_session) {
 	for (const {relative_path, generateFileSourceCode} of vipen_session.files_to_autogenerate) {

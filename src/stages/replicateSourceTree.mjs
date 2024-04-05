@@ -1,6 +1,5 @@
-import scandir from "@anio-node-foundation/fs-scandir"
+import {scandir, mkdirp} from "@anio-software/fs"
 import path from "node:path"
-import {mkdirp} from "@anio-node-foundation/fs-utils"
 
 export default async function(vipen_session) {
 	let entries = await scandir(

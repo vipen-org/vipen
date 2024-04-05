@@ -1,4 +1,4 @@
-import {mkdirp, clean} from "@anio-node-foundation/fs-utils"
+import {mkdirp, clean} from "@anio-software/fs"
 import path from "node:path"
 
 export default async function(vipen_session) {

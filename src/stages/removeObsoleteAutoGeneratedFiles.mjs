@@ -1,6 +1,5 @@
-import path, { relative } from "node:path"
-import scandir from "@anio-node-foundation/fs-scandir"
-import remove from "@anio-node-foundation/fs-remove"
+import path from "node:path"
+import {scandir, remove} from "@anio-software/fs"
 
 export default async function(vipen_session) {
 	let deleted_entries = []

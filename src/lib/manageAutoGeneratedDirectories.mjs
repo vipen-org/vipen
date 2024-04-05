@@ -1,6 +1,5 @@
 import path from "node:path"
-import {isRegularDirectory} from "@anio-node-foundation/fs-utils"
-import fsScandir from "@anio-node-foundation/fs-scandir"
+import {scandir, isRegularDirectorySync} from "@anio-software/fs"
 import fs from "node:fs/promises"
 import determineFilesToBeRemoved from "./determineFilesToBeRemoved.mjs"
 
@@ -51,14 +50,14 @@ export default async function(ctx) {
 	for (const dir of directories_managed_by_vipen) {
 		const absolute_dir_path = path.join(ctx.root, dir)
 
-		if (!isRegularDirectory.sync(absolute_dir_path)) {
+		if (!isRegularDirectorySync(absolute_dir_path)) {
 			//throw new Error(`Expected ${dir} to be a directory.`)
 			await fs.mkdir(absolute_dir_path, {
 				recursive: true
 			})
 		}
 
-		const entries = await fsScandir(absolute_dir_path)
+		const entries = await scandir(absolute_dir_path)
 
 		for (const entry of entries) {
 			actual_entries_on_disk.set(path.join(dir, entry.relative_path), 1)

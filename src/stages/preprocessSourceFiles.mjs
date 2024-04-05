@@ -1,8 +1,6 @@
-import scandir from "@anio-node-foundation/fs-scandir"
+import {scandir, writeAtomicFile} from "@anio-software/fs"
 import path from "node:path"
 import fs from "node:fs/promises"
-
-import {writeAtomicFile} from "@anio-node-foundation/fs-utils"
 
 function defaultTransformSourceCode(relative_path, contents) {
 	return null
